@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pulsarBarra {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes propagarOnda {
+  0% { r: 40; opacity: 0.5; }
+  100% { r: 280; opacity: 0; }
+}
+
+@keyframes pulsarEspectro {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-creme-50 text-laranja-900 font-body antialiased;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(61,31,12,0.05) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: #FF1F5C;
+    color: #FBF3E7;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #FFC700;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradiente-explay px-5 py-3
+      font-display font-extrabold text-explay-escuro shadow-[0_5px_0_0_#B01840]
+      transition-all duration-150 hover:brightness-105
+      active:translate-y-[3px] active:shadow-[0_1px_0_0_#B01840]
+      disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-explay-magenta/30
+      bg-white px-5 py-3 font-display font-semibold text-laranja-800
+      transition-colors hover:border-explay-laranja hover:text-explay-magenta;
+  }
+
+  .card {
+    @apply rounded-2xl border border-laranja-900/10 bg-white p-6 shadow-sm;
+  }
+
+  .label-eyebrow {
+    @apply font-display text-xs font-semibold uppercase tracking-[0.18em] text-explay-laranja;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-laranja-900/15 bg-white px-4 py-3 text-laranja-900
+      placeholder:text-laranja-900/35 outline-none transition-colors
+      focus:border-explay-laranja;
+  }
+}
